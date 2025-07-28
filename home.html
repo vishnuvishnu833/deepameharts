@@ -113,10 +113,11 @@
       position: relative;
     }
 
-    .welcome-box video {
+    .welcome-box img {
       width: 100%;
-      border-radius: 0;
+      height: auto;
       display: block;
+      border-radius: 0;
     }
 
     .section {
@@ -694,12 +695,9 @@
 
   <!-- Main Content -->
   <div id="main-content">
-    <!-- Welcome Video -->
+    <!-- Welcome Image -->
     <div class="welcome-box" id="welcome">
-      <video autoplay muted loop playsinline id="w-video" preload="auto">
-        <source src="w.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+      <img src="welcome.jpeg" alt="Deepa Mehendi Artist - Bridal Mehendi Designs" loading="eager">
     </div>
 
     <!-- Certified Artist Section -->
@@ -922,24 +920,6 @@
     let isDragging = false;
     let startX, startY, translateX = 0, translateY = 0;
     let lastTouchDistance = 0;
-
-    // Preload important videos
-    function preloadVideos() {
-      const welcomeVideo = document.getElementById('w-video');
-      const emotionVideo = document.getElementById('nv-video');
-      
-      // Set higher priority for welcome video
-      welcomeVideo.preload = 'auto';
-      emotionVideo.preload = 'auto';
-      
-      // Force load videos
-      welcomeVideo.load();
-      emotionVideo.load();
-      
-      // Try to play them (muted)
-      welcomeVideo.play().catch(e => console.log('Welcome video autoplay prevented:', e));
-      emotionVideo.play().catch(e => console.log('Emotion video autoplay prevented:', e));
-    }
 
     function openLightbox(images, index) {
       currentImages = images;
@@ -1246,11 +1226,8 @@
       isDragging = false;
     });
 
-    // Optimize video loading and autoplay
+    // Optimize video loading
     document.addEventListener('DOMContentLoaded', function() {
-      // Preload important videos immediately
-      preloadVideos();
-      
       // Set video attributes for better performance
       const videos = document.querySelectorAll('video');
       videos.forEach(video => {
@@ -1286,7 +1263,7 @@
         entries.forEach(entry => {
           if (entry.target.tagName === 'VIDEO') {
             if (entry.isIntersecting) {
-              if (entry.target.id === 'w-video' || entry.target.id === 'nv-video') {
+              if (entry.target.id === 'nv-video') {
                 entry.target.play().catch(e => console.log('Autoplay prevented:', e));
               }
             } else {
