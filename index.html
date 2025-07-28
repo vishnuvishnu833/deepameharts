@@ -140,6 +140,15 @@
       transition: opacity 1s ease-in-out;
     }
 
+    /* Hidden iframe for preloading */
+    #preloader {
+      position: absolute;
+      width: 0;
+      height: 0;
+      border: none;
+      visibility: hidden;
+    }
+
     /* Simplified Animations */
     @keyframes shootDown {
       0% { transform: translateY(0); opacity: 0; }
@@ -185,6 +194,9 @@
 <body>
   <!-- Transition Overlay -->
   <div class="transition-overlay" id="transitionOverlay"></div>
+
+  <!-- Hidden iframe for preloading -->
+  <iframe id="preloader" src="about:blank"></iframe>
 
   <!-- Arrows -->
   <div class="arrow arrow-1"></div>
@@ -240,15 +252,22 @@
         }
       }
 
-      // Faster redirect for mobile
+      // Start preloading home.html after 2 seconds
       setTimeout(() => {
-        const overlay = document.getElementById('transitionOverlay');
-        overlay.style.opacity = '1';
+        const preloader = document.getElementById('preloader');
+        preloader.src = 'home.html';
         
+        // Start transition after total 3.5 seconds (1.5s after preload starts)
         setTimeout(() => {
-          window.location.href = 'home.html';
-        }, 800);
-      }, 3500);
+          const overlay = document.getElementById('transitionOverlay');
+          overlay.style.opacity = '1';
+          
+          // Redirect after transition completes
+          setTimeout(() => {
+            window.location.href = 'home.html';
+          }, 800);
+        }, 1500);
+      }, 2000);
     });
 
     // Prevent zooming on mobile
