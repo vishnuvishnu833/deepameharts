@@ -2,483 +2,259 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Deepa Mehndi | Royal Artistry</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Marcellus+SC&family=Playfair+Display:wght@700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Marcellus+SC&display=swap');
     
     body {
       margin: 0;
       overflow: hidden;
-      background: 
-        radial-gradient(circle at 20% 30%, #0a0408 0%, #050310 100%);
+      background: radial-gradient(circle at center, #0a0408 0%, #050310 100%);
       height: 100vh;
-      perspective: 1000px;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
     }
 
-    /* Enhanced Luxurious Arrows */
+    /* Simplified Arrows for Mobile */
     .arrow {
       position: absolute;
       opacity: 0;
       z-index: 10;
-      filter: 
-        drop-shadow(0 0 15px var(--glow))
-        drop-shadow(0 0 8px var(--glow))
-        drop-shadow(0 0 4px white);
-      transform-style: preserve-3d;
+      filter: drop-shadow(0 0 8px var(--glow));
+      will-change: transform, opacity;
     }
 
-    /* Arrow 1: Divine Gold (Top to Bottom) */
+    /* Arrow 1: Gold (Top to Bottom) */
     .arrow-1 {
       --glow: #f8d56b;
-      left: 22%;
-      top: -150px;
-      width: 8px;
-      height: 200px;
-      background: linear-gradient(
-        to bottom, 
-        #f8d56b 0%, 
-        #f8b56b 30%, 
-        transparent 100%
-      );
-      animation: shootDown 2s cubic-bezier(0.2, 0.8, 0.3, 1) 0.3s forwards;
-    }
-    .arrow-1::before {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-        to bottom, 
-        rgba(255,255,255,0.8) 0%, 
-        transparent 100%
-      );
-      transform: translateZ(10px);
-    }
-    .arrow-1::after {
-      content: '';
-      position: absolute;
-      bottom: -12px;
-      left: -22px;
-      width: 50px;
-      height: 50px;
-      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%23f8d56b' d='M32,2L4,32L32,62L38,56L12,32L38,8L32,2Z'/%3E%3C/svg%3E");
-      transform: scale(1.5);
-      filter: drop-shadow(0 0 8px #f8d56b);
+      left: 15%;
+      top: -50px;
+      width: 5px;
+      height: 120px;
+      background: linear-gradient(to bottom, #f8d56b 0%, #f8b56b 30%, transparent 100%);
+      animation: shootDown 1.5s cubic-bezier(0.2, 0.8, 0.3, 1) 0.3s forwards;
     }
 
-    /* Arrow 2: Ruby Fire (Left to Right) */
+    /* Arrow 2: Ruby (Left to Right) */
     .arrow-2 {
       --glow: #ff3a3a;
-      left: -200px;
+      left: -120px;
       bottom: 28%;
-      width: 220px;
-      height: 8px;
-      background: linear-gradient(
-        to right, 
-        #ff6b35 0%, 
-        #ff3a3a 50%, 
-        transparent 100%
-      );
-      animation: shootRight 1.7s cubic-bezier(0.1, 0.9, 0.2, 1) 0.8s forwards;
-    }
-    .arrow-2::before {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-        to right, 
-        rgba(255,255,255,0.8) 0%, 
-        transparent 100%
-      );
-      transform: translateZ(10px);
-    }
-    .arrow-2::after {
-      content: '';
-      position: absolute;
-      right: -12px;
-      top: -22px;
-      width: 50px;
-      height: 50px;
-      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%23ff3a3a' d='M62,32L32,4L32,60L62,32Z'/%3E%3C/svg%3E");
-      filter: drop-shadow(0 0 8px #ff3a3a);
+      width: 140px;
+      height: 5px;
+      background: linear-gradient(to right, #ff6b35 0%, #ff3a3a 50%, transparent 100%);
+      animation: shootRight 1.2s cubic-bezier(0.1, 0.9, 0.2, 1) 0.8s forwards;
     }
 
-    /* Arrow 3: Sapphire Moon (Top to Bottom) */
+    /* Arrow 3: Sapphire (Top to Bottom) */
     .arrow-3 {
       --glow: #6bd6f8;
-      right: 22%;
-      top: -150px;
-      width: 8px;
-      height: 200px;
-      background: linear-gradient(
-        to bottom, 
-        #6bd6f8 0%, 
-        #3a8bff 50%, 
-        transparent 100%
-      );
-      animation: shootDown 2s cubic-bezier(0.2, 0.8, 0.3, 1) 1.2s forwards;
-    }
-    .arrow-3::before {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-        to bottom, 
-        rgba(255,255,255,0.8) 0%, 
-        transparent 100%
-      );
-      transform: translateZ(10px);
-    }
-    .arrow-3::after {
-      content: '';
-      position: absolute;
-      bottom: -12px;
-      left: -22px;
-      width: 50px;
-      height: 50px;
-      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%236bd6f8' d='M32,2L4,32L32,62L38,56L12,32L38,8L32,2Z'/%3E%3C/svg%3E");
-      transform: scale(1.5);
-      filter: drop-shadow(0 0 8px #6bd6f8);
+      right: 15%;
+      top: -50px;
+      width: 5px;
+      height: 120px;
+      background: linear-gradient(to bottom, #6bd6f8 0%, #3a8bff 50%, transparent 100%);
+      animation: shootDown 1.5s cubic-bezier(0.2, 0.8, 0.3, 1) 1.2s forwards;
     }
 
-    /* Arrow 4: Amethyst Strike (Right to Left) */
+    /* Arrow 4: Amethyst (Right to Left) */
     .arrow-4 {
       --glow: #b36bf8;
-      right: -200px;
+      right: -120px;
       bottom: 32%;
-      width: 220px;
-      height: 8px;
-      background: linear-gradient(
-        to left, 
-        #b36bf8 0%, 
-        #8a3bff 50%, 
-        transparent 100%
-      );
-      animation: shootLeft 1.7s cubic-bezier(0.1, 0.9, 0.2, 1) 1.7s forwards;
-    }
-    .arrow-4::before {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-        to left, 
-        rgba(255,255,255,0.8) 0%, 
-        transparent 100%
-      );
-      transform: translateZ(10px);
-    }
-    .arrow-4::after {
-      content: '';
-      position: absolute;
-      left: -12px;
-      top: -22px;
-      width: 50px;
-      height: 50px;
-      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%23b36bf8' d='M2,32L32,4L32,60L2,32Z'/%3E%3C/svg%3E");
-      filter: drop-shadow(0 0 8px #b36bf8);
+      width: 140px;
+      height: 5px;
+      background: linear-gradient(to left, #b36bf8 0%, #8a3bff 50%, transparent 100%);
+      animation: shootLeft 1.2s cubic-bezier(0.1, 0.9, 0.2, 1) 1.7s forwards;
     }
 
-    /* Regal Signature - Enhanced */
+    /* Optimized Signature for Mobile */
     .signature {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       font-family: 'Marcellus SC', serif;
-      font-size: 5.5rem;
-      font-weight: 400;
+      font-size: 2.5rem;
       color: #f8e6b0;
       text-shadow: 
-        0 0 30px rgba(248, 230, 176, 0.9),
-        0 0 60px rgba(248, 213, 107, 0.7),
-        0 0 90px rgba(248, 200, 60, 0.4),
-        0 0 10px rgba(255,255,255,0.5);
+        0 0 15px rgba(248, 230, 176, 0.9),
+        0 0 30px rgba(248, 213, 107, 0.7);
       opacity: 0;
       animation: 
-        fadeIn 1.2s ease-out 2.2s forwards,
+        fadeIn 1s ease-out 2.2s forwards,
         glowPulse 4s ease-in-out infinite 3.5s;
       z-index: 30;
-      letter-spacing: 4px;
-      background: 
-        linear-gradient(135deg, #f8e6b0 30%, #d4af37 70%);
+      letter-spacing: 2px;
+      background: linear-gradient(135deg, #f8e6b0 30%, #d4af37 70%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      padding: 0 40px;
-      border-radius: 10px;
-      box-shadow: 
-        0 0 50px rgba(248, 213, 107, 0.3),
-        inset 0 0 20px rgba(255,255,255,0.1);
+      padding: 0 20px;
+      text-align: center;
+      width: 90%;
+      box-sizing: border-box;
     }
 
-    /* Enhanced Jewel-Toned Trails */
+    /* Simplified Trails */
     .trail {
       position: absolute;
       border-radius: 50%;
       opacity: 0;
       z-index: 5;
-      filter: blur(15px);
-      transform-style: preserve-3d;
+      filter: blur(10px);
+      will-change: transform, opacity;
     }
 
     .gold-trail {
-      background: radial-gradient(
-        circle, 
-        rgba(248, 213, 107, 0.9) 0%, 
-        rgba(248, 180, 70, 0.6) 50%, 
-        transparent 100%
-      );
-      animation: fadeTrail 2.5s cubic-bezier(0.2, 0, 0.8, 1) 0.3s forwards;
-      box-shadow: 0 0 60px rgba(248, 213, 107, 0.5);
+      background: radial-gradient(circle, rgba(248, 213, 107, 0.9) 0%, transparent 70%);
+      animation: fadeTrail 2s cubic-bezier(0.2, 0, 0.8, 1) 0.3s forwards;
     }
 
     .ruby-trail {
-      background: radial-gradient(
-        circle, 
-        rgba(255, 80, 80, 0.9) 0%, 
-        rgba(255, 40, 40, 0.5) 70%, 
-        transparent 100%
-      );
-      animation: fadeTrail 2.2s cubic-bezier(0.2, 0, 0.8, 1) 0.8s forwards;
-      box-shadow: 0 0 60px rgba(255, 80, 80, 0.5);
+      background: radial-gradient(circle, rgba(255, 80, 80, 0.9) 0%, transparent 70%);
+      animation: fadeTrail 1.8s cubic-bezier(0.2, 0, 0.8, 1) 0.8s forwards;
     }
 
     .sapphire-trail {
-      background: radial-gradient(
-        circle, 
-        rgba(107, 214, 248, 0.9) 0%, 
-        rgba(58, 139, 255, 0.5) 70%, 
-        transparent 100%
-      );
-      animation: fadeTrail 2.5s cubic-bezier(0.2, 0, 0.8, 1) 1.2s forwards;
-      box-shadow: 0 0 60px rgba(107, 214, 248, 0.5);
+      background: radial-gradient(circle, rgba(107, 214, 248, 0.9) 0%, transparent 70%);
+      animation: fadeTrail 2s cubic-bezier(0.2, 0, 0.8, 1) 1.2s forwards;
     }
 
     .amethyst-trail {
-      background: radial-gradient(
-        circle, 
-        rgba(179, 107, 248, 0.9) 0%, 
-        rgba(138, 59, 255, 0.5) 70%, 
-        transparent 100%
-      );
-      animation: fadeTrail 2.2s cubic-bezier(0.2, 0, 0.8, 1) 1.7s forwards;
-      box-shadow: 0 0 60px rgba(179, 107, 248, 0.5);
+      background: radial-gradient(circle, rgba(179, 107, 248, 0.9) 0%, transparent 70%);
+      animation: fadeTrail 1.8s cubic-bezier(0.2, 0, 0.8, 1) 1.7s forwards;
     }
 
-    /* Luxe Particles - Enhanced */
-    .particle {
-      position: absolute;
-      border-radius: 50%;
-      opacity: 0;
-      z-index: 25;
-      filter: 
-        drop-shadow(0 0 6px currentColor)
-        drop-shadow(0 0 3px white);
-      transform-style: preserve-3d;
-    }
-
-    /* Transition Overlay - Enhanced */
+    /* Transition Overlay */
     .transition-overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: radial-gradient(circle at center, #0a0408 0%, #050310 100%);
+      background: #0a0408;
       z-index: 1000;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 1.2s ease-in-out;
+      transition: opacity 1s ease-in-out;
     }
 
-    /* Diamond Dust Effect */
-    .diamond-dust {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 2;
-      background-image: 
-        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.02) 0.5px, transparent 1px),
-        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.02) 0.5px, transparent 1px);
-      background-size: 30px 30px;
-    }
-
-    /* Royal Emblem - Enhanced */
-    .emblem {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 200px;
-      height: 200px;
-      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23f8d56b' d='M50,5L20,40L35,40L35,95L65,95L65,40L80,40L50,5Z'/%3E%3C/svg%3E") no-repeat center;
-      opacity: 0.2;
-      z-index: 1;
-      animation: emblemPulse 8s ease-in-out infinite;
-      filter: drop-shadow(0 0 15px rgba(248, 213, 107, 0.5));
-    }
-
-    /* Animations - Enhanced */
+    /* Simplified Animations */
     @keyframes shootDown {
-      0% { transform: translateY(0) translateZ(0); opacity: 0; }
+      0% { transform: translateY(0); opacity: 0; }
       10% { opacity: 1; }
-      100% { transform: translateY(120vh) translateZ(100px); opacity: 0; }
+      100% { transform: translateY(100vh); opacity: 0; }
     }
 
     @keyframes shootRight {
-      0% { transform: translateX(0) translateZ(0); opacity: 0; }
+      0% { transform: translateX(0); opacity: 0; }
       10% { opacity: 1; }
-      100% { transform: translateX(120vw) translateZ(100px); opacity: 0; }
+      100% { transform: translateX(100vw); opacity: 0; }
     }
 
     @keyframes shootLeft {
-      0% { transform: translateX(0) translateZ(0); opacity: 0; }
+      0% { transform: translateX(0); opacity: 0; }
       10% { opacity: 1; }
-      100% { transform: translateX(-120vw) translateZ(100px); opacity: 0; }
+      100% { transform: translateX(-100vw); opacity: 0; }
     }
 
     @keyframes fadeIn {
-      to { opacity: 1; transform: translate(-50%, -50%) scale(1.1) translateZ(20px); }
+      to { opacity: 1; transform: translate(-50%, -50%) scale(1.05); }
     }
 
     @keyframes glowPulse {
-      0%, 100% { 
-        text-shadow: 
-          0 0 30px rgba(248, 230, 176, 0.9),
-          0 0 60px rgba(248, 213, 107, 0.7),
-          0 0 90px rgba(248, 200, 60, 0.4),
-          0 0 10px rgba(255,255,255,0.5);
-      }
-      50% { 
-        text-shadow: 
-          0 0 45px rgba(248, 230, 176, 1),
-          0 0 90px rgba(248, 213, 107, 0.9),
-          0 0 130px rgba(248, 200, 60, 0.6),
-          0 0 15px rgba(255,255,255,0.7);
-      }
+      0%, 100% { text-shadow: 0 0 15px rgba(248, 230, 176, 0.9), 0 0 30px rgba(248, 213, 107, 0.7); }
+      50% { text-shadow: 0 0 25px rgba(248, 230, 176, 1), 0 0 50px rgba(248, 213, 107, 0.9); }
     }
 
     @keyframes fadeTrail {
-      0% { transform: scale(0.3) translateZ(0); opacity: 0; }
+      0% { transform: scale(0.3); opacity: 0; }
       20% { opacity: 0.9; }
-      100% { transform: scale(2.5) translateZ(50px); opacity: 0; }
+      100% { transform: scale(1.5); opacity: 0; }
     }
 
-    @keyframes emblemPulse {
-      0%, 100% { transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 0.2; }
-      50% { transform: translate(-50%, -50%) scale(1.2) rotate(5deg); opacity: 0.3; }
-    }
-
-    /* Subtle Background Pattern */
-    .bg-pattern {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background-image: 
-        radial-gradient(circle at 10% 20%, rgba(248, 213, 107, 0.03) 0px, transparent 2px),
-        radial-gradient(circle at 90% 80%, rgba(107, 214, 248, 0.03) 0px, transparent 2px),
-        radial-gradient(circle at 30% 70%, rgba(255, 80, 80, 0.03) 0px, transparent 2px),
-        radial-gradient(circle at 70% 30%, rgba(179, 107, 248, 0.03) 0px, transparent 2px);
-      background-size: 200px 200px;
-      z-index: 0;
+    /* Media Query for Larger Mobile Screens */
+    @media (min-width: 500px) and (max-height: 1000px) {
+      .signature {
+        font-size: 3.5rem;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Background Elements -->
-  <div class="bg-pattern"></div>
-  <div class="diamond-dust"></div>
-
   <!-- Transition Overlay -->
   <div class="transition-overlay" id="transitionOverlay"></div>
 
-  <!-- Luxurious Arrows -->
+  <!-- Arrows -->
   <div class="arrow arrow-1"></div>
   <div class="arrow arrow-2"></div>
   <div class="arrow arrow-3"></div>
   <div class="arrow arrow-4"></div>
 
-  <!-- Regal Signature -->
+  <!-- Signature -->
   <div class="signature">Deepa Mehndi</div>
 
-  <!-- Jewel-Toned Trails -->
-  <div class="trail gold-trail" style="left: 22%; top: 65%; width: 200px; height: 200px;"></div>
-  <div class="trail ruby-trail" style="left: 45%; bottom: 28%; width: 220px; height: 220px;"></div>
-  <div class="trail sapphire-trail" style="right: 22%; top: 60%; width: 200px; height: 200px;"></div>
-  <div class="trail amethyst-trail" style="right: 35%; bottom: 32%; width: 220px; height: 220px;"></div>
-
-  <!-- Royal Emblem -->
-  <div class="emblem"></div>
+  <!-- Trails -->
+  <div class="trail gold-trail" style="left: 15%; top: 65%; width: 120px; height: 120px;"></div>
+  <div class="trail ruby-trail" style="left: 45%; bottom: 28%; width: 140px; height: 140px;"></div>
+  <div class="trail sapphire-trail" style="right: 15%; top: 60%; width: 120px; height: 120px;"></div>
+  <div class="trail amethyst-trail" style="right: 35%; bottom: 32%; width: 140px; height: 140px;"></div>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // Create luxury particles with enhanced effects
-      const colors = [
-        {color: '#f8d56b', glow: 'rgba(248, 213, 107, 0.8)'},
-        {color: '#f8b56b', glow: 'rgba(248, 181, 107, 0.8)'},
-        {color: '#ff6b35', glow: 'rgba(255, 107, 53, 0.8)'},
-        {color: '#6bd6f8', glow: 'rgba(107, 214, 248, 0.8)'},
-        {color: '#b36bf8', glow: 'rgba(179, 107, 248, 0.8)'},
-        {color: '#ffffff', glow: 'rgba(255, 255, 255, 0.8)'}
-      ];
+      // Reduced particles for mobile performance
+      const colors = ['#f8d56b', '#ff6b35', '#6bd6f8', '#b36bf8', '#ffffff'];
       
-      for (let i = 0; i < 80; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        const colorData = colors[Math.floor(Math.random() * colors.length)];
-        
-        particle.style.left = `${40 + Math.random() * 20}%`;
-        particle.style.top = `${40 + Math.random() * 20}%`;
-        particle.style.width = `${3 + Math.random() * 8}px`;
-        particle.style.height = particle.style.width;
-        particle.style.backgroundColor = colorData.color;
-        particle.style.boxShadow = `0 0 10px ${colorData.glow}`;
-        
-        // Create unique animation for each particle
-        const animName = `float-${i}`;
-        const duration = 4 + Math.random() * 4;
-        const delay = Math.random() * 5;
-        
-        const style = document.createElement('style');
-        style.textContent = `
-          @keyframes ${animName} {
-            0% { 
-              transform: translate(0, 0) scale(0.3) translateZ(0); 
-              opacity: 0; 
+      // Only create particles on devices that can likely handle them
+      if (!navigator.userAgent.match(/(Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone)/i) || 
+          window.innerWidth > 768) {
+        for (let i = 0; i < 30; i++) {
+          const particle = document.createElement('div');
+          particle.className = 'particle';
+          const color = colors[Math.floor(Math.random() * colors.length)];
+          
+          particle.style.left = `${30 + Math.random() * 40}%`;
+          particle.style.top = `${30 + Math.random() * 40}%`;
+          particle.style.width = `${2 + Math.random() * 4}px`;
+          particle.style.height = particle.style.width;
+          particle.style.backgroundColor = color;
+          
+          const animName = `float-${i}`;
+          const duration = 3 + Math.random() * 3;
+          const delay = Math.random() * 3;
+          
+          const style = document.createElement('style');
+          style.textContent = `
+            @keyframes ${animName} {
+              0% { transform: translate(0, 0) scale(0.3); opacity: 0; }
+              20% { opacity: ${0.3 + Math.random() * 0.4}; }
+              100% { transform: translate(${Math.random() * 200 - 100}px, ${Math.random() * 200 - 150}px) 
+                        scale(${0.3 + Math.random() * 0.4}); opacity: 0; }
             }
-            20% { 
-              opacity: ${0.5 + Math.random() * 0.5}; 
-            }
-            100% { 
-              transform: translate(${Math.random() * 400 - 200}px, ${Math.random() * 400 - 300}px) 
-                        scale(${0.5 + Math.random() * 0.5}) 
-                        translateZ(${Math.random() * 100}px); 
-              opacity: 0; 
-            }
-          }
-        `;
-        document.head.appendChild(style);
-        
-        particle.style.animation = `${animName} ${duration}s ease-in-out infinite ${delay}s`;
-        document.body.appendChild(particle);
+          `;
+          document.head.appendChild(style);
+          
+          particle.style.animation = `${animName} ${duration}s ease-in-out infinite ${delay}s`;
+          document.body.appendChild(particle);
+        }
       }
 
-      // Enhanced redirect with sound effect (optional)
+      // Faster redirect for mobile
       setTimeout(() => {
         const overlay = document.getElementById('transitionOverlay');
         overlay.style.opacity = '1';
         
-        // Optional: Add a subtle sound effect here if desired
-        
         setTimeout(() => {
           window.location.href = 'home.html';
-        }, 1200);
-      }, 5000);
+        }, 800);
+      }, 3500);
     });
+
+    // Prevent zooming on mobile
+    document.addEventListener('touchmove', function(e) {
+      if (e.scale !== 1) { e.preventDefault(); }
+    }, { passive: false });
   </script>
 </body>
 </html>
